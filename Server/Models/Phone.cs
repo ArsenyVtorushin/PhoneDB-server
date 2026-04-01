@@ -20,7 +20,7 @@ namespace Server.Models
         [StringLength(50)]
         public string Title { get; set; }
 
-        [Column("companyId")]
+        [Column("company_id")]
         [Required]
         public int CompanyId { get; set; }
 

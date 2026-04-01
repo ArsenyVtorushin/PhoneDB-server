@@ -60,7 +60,7 @@ namespace Server.Migrations
 
                     b.Property<int>("CompanyId")
                         .HasColumnType("integer")
-                        .HasColumnName("companyId");
+                        .HasColumnName("company_id");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric")

@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Server.Migrations
 {
     /// <inheritdoc />
-    public partial class DbMigration : Migration
+    public partial class phonesMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -38,15 +38,15 @@ namespace Server.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     title = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    companyId = table.Column<int>(type: "integer", nullable: false),
+                    company_id = table.Column<int>(type: "integer", nullable: false),
                     price = table.Column<decimal>(type: "numeric", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_phones", x => x.id);
                     table.ForeignKey(
-                        name: "FK_phones_companies_companyId",
-                        column: x => x.companyId,
+                        name: "FK_phones_companies_company_id",
+                        column: x => x.company_id,
                         principalSchema: "public",
                         principalTable: "companies",
                         principalColumn: "id",
@@ -54,10 +54,10 @@ namespace Server.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_phones_companyId",
+                name: "IX_phones_company_id",
                 schema: "public",
                 table: "phones",
-                column: "companyId");
+                column: "company_id");
         }
 
         /// <inheritdoc />

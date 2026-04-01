@@ -11,8 +11,8 @@ using Server.Repo;
 namespace Server.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    [Migration("20260327151243_DbMigration")]
-    partial class DbMigration
+    [Migration("20260401201446_phonesMigration")]
+    partial class phonesMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,7 +63,7 @@ namespace Server.Migrations
 
                     b.Property<int>("CompanyId")
                         .HasColumnType("integer")
-                        .HasColumnName("companyId");
+                        .HasColumnName("company_id");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric")
