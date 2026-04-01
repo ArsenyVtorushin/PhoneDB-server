@@ -2,9 +2,10 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            
+            var listener = new Listener();
+            await listener.RunAsync();
         }
     }
 }

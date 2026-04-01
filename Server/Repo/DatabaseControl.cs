@@ -10,7 +10,7 @@ namespace Server.Repo
 {
     public static class DatabaseControl
     {
-        public static List<Phone> GetPhonesForView()
+        public static List<Phone> GetPhones()
         {
             using (DbAppContext ctx = new DbAppContext())
             {
