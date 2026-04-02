@@ -27,6 +27,7 @@ namespace Server.Models
         [Column("price")]
         public decimal Price { get; set; }
 
+        [ForeignKey(nameof(CompanyId))]
         public Company CompanyEntity { get; set; }
     }
 }

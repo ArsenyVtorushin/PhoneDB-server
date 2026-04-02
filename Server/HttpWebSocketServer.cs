@@ -109,6 +109,8 @@ namespace Server
                     {
                         string message = Encoding.UTF8.GetString(buffer, 0, result.Count);
 
+                        Console.WriteLine(message);
+
                         try
                         {
                             var request = JsonConvert.DeserializeObject<Dictionary<string, object>>(message);
@@ -121,7 +123,11 @@ namespace Server
                                 {
                                     var response = _handlers[command](request);
 
-                                    string jsonResponse = JsonConvert.SerializeObject(response, Formatting.Indented);
+                                    string jsonResponse = JsonConvert.SerializeObject(response, Formatting.Indented,
+                                        new JsonSerializerSettings()
+                                        {
+                                            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                                        });
                                     byte[] responseBytes = Encoding.UTF8.GetBytes(jsonResponse);
 
                                     await webSocket.SendAsync(
