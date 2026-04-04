@@ -11,8 +11,8 @@ using Server.Repo;
 namespace Server.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    [Migration("20260401201446_phonesMigration")]
-    partial class phonesMigration
+    [Migration("20260404151336_phone_migration")]
+    partial class phone_migration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
